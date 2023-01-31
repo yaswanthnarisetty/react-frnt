@@ -13,6 +13,10 @@
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +39,59 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.formDiv {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.navClass {
+  display: flex;
+    justify-content: center;
+    gap: 2em;
+    list-style: none;
+}
+.navClass2 {
+  display: flex !important;
+  gap: 2em;
+  list-style: none;
+  justify-content: center;
+}
+
+.Addproduct{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  gap: 1em;
+
+}
+.Addproduct-div {
+  display: flex;
+  justify-content: center;
+}
+
+
+.invalid-input {
+  display: flex;
+  color: red;
+  margin-top: -20px;
+  font-weight: 600;
+}
+
+.productsList ul{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+}
+
+.productsList li {
+  border: 1px solid burlywood;
+  width: 15em;
 }
