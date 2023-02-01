@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate,useParams } from "react-router-dom";
+import {useNavigate,useParams } from "react-router-dom";
 
 export default function UpdateProduct() {
     const[name,setName]=useState('')
@@ -11,7 +11,7 @@ export default function UpdateProduct() {
 
     useEffect(()=>{
         getProductDetails();
-    })
+    },[])
 
     const getProductDetails = async () =>{
         let result = await fetch(`http://localhost:6001/product/${params.id}`);
@@ -25,6 +25,16 @@ export default function UpdateProduct() {
 
     const updateProduct =async () => {
      console.log(name,price,category,company)
+     let result = await fetch (`http://localhost:6001/product/${params.id}`,{
+        method:'Put',
+        body:JSON.stringify({name,price,category,company}),
+        headers:{
+            "Content-Type":"application/json"
+        }
+     });
+        result = await result.json();
+        console.log(result)
+        navigate("/")
     }
     return (
         <div className="Addproduct-div">

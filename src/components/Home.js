@@ -6,7 +6,8 @@ export default function Home (){
     const [products,setProducts] = useState([])
     useEffect(() =>{
         getProducts();
-    })
+    },[]);
+    // products && product.map() => {};
 
     const getProducts = async () =>{
         let result = await fetch('http://localhost:6001/products');
@@ -24,8 +25,24 @@ export default function Home (){
         }
     }
 
+    const handleChange = async (event) =>{
+        let key = event.target.value;
+        if(key){
+            let result = await fetch (`http://localhost:6001/search/${key}`);
+        result = await result.json();
+        if(result) {
+            setProducts(result);
+        }
+        }
+        else{
+            getProducts()
+        }
+        
+    }
+
     return(
         <div className="productsList">
+            <input type="text"  className = "search-product-box" placeholder = "search product"  onChange =  {handleChange} />
             <ul >
                 <li>s.no</li>
                 <li>name</li>
@@ -35,7 +52,7 @@ export default function Home (){
                 <li>action</li>
             </ul>
             {
-                products.map((item,index)=>
+             products&&products.map((item,index)=>
                     <ul>
                         <li>{index+1}</li>
                         <li> {item.name}</li>

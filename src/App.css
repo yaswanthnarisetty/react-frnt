@@ -95,3 +95,10 @@ a {
   border: 1px solid burlywood;
   width: 15em;
 }
+
+.search-product-box {
+    margin: 20px;
+    width: 50%;
+    text-align: center;
+    height: 2em;
+}
