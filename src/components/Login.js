@@ -8,7 +8,7 @@ export default function Login() {
     useEffect(() =>{
         const auth = localStorage.getItem('user');
         if (auth){
-            navigate("/")
+            navigate("/app")
         }
     })
     const handleLogin =async () => {
@@ -25,7 +25,7 @@ export default function Login() {
             if(result.name){
                 alert('login success');
                 localStorage.setItem('user',JSON.stringify(result));
-                navigate('/');
+                navigate('/app');
             }
             else{
                 alert("please enter correct details");

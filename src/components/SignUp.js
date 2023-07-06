@@ -9,7 +9,7 @@ export default function SignUp() {
     useEffect(() =>{
         const auth = localStorage.getItem('user');
         if (auth){
-            navigate("/")
+            navigate("/app")
         }
     })
     const collectData = async () =>{
@@ -26,7 +26,7 @@ export default function SignUp() {
         if(result)
         {
 
-            navigate('/')
+            navigate('/app')
         }
     }
     return (
